@@ -6,10 +6,12 @@ while(!maximum) {
 const targetNum = Math.floor(Math.random() * maximum) + 1;
 
 console.log(targetNum);
+let attempts = 1;
 
 let guess = prompt('Enter Your First Guess: ');
 
 while (guess !== targetNum) {
+    attempts++
     if(guess > targetNum) {
         guess = parseInt(prompt('Too high, Enter a new Guess.'))
     } else {
@@ -17,4 +19,4 @@ while (guess !== targetNum) {
     }
 }
 
-console.log('You Got it')
+console.log(`You Got it. It took : ${attempts} guesses`)
