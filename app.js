@@ -10,13 +10,20 @@ let attempts = 1;
 
 let guess = prompt('Enter Your First Guess: ');
 
-while (guess !== targetNum) {
-    attempts++
+while (parseInt(guess) !== targetNum) {
+    if(guess === 'quit') break;
+    attempts++;
     if(guess > targetNum) {
-        guess = parseInt(prompt('Too high, Enter a new Guess.'))
+        guess = prompt('Too high, Enter a new Guess.');
     } else {
-        guess = parseInt(prompt("Too low, Try again"))
+        guess = prompt("Too low, Try again");
     }
 }
 
-console.log(`You Got it. It took : ${attempts} guesses`)
+if(guess === 'quit') {
+    console.log('You quit')
+} else {
+    console.log('Congrats, You win!')
+    console.log(`You Got it. It took : ${attempts} guesses`)
+}
+
